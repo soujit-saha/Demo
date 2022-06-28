@@ -7,9 +7,44 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 const Signup = props => {
+  const [fullname, onChangefullname] = useState('');
+  const [email, onChangeemail] = useState('');
+  const [phone, onChangephone] = useState('');
+  const [password, onChangepassword] = useState('');
+  const [cpassword, onChangecpassword] = useState('');
+
+  const vaildation = () => {
+    // if (fullname.length > 2) {
+    //   if (email.length > 2) {
+    //     if (phone.length == 10) {
+    //       if (password.length > 5) {
+    //         if (password == cpassword) {
+    //           props.navigation.navigate('Info', {
+    //             fullname,
+    //             email,
+    //             phone,
+    //             password,
+    //           });
+    //         } else {
+    //           alert('Confirm Password not match');
+    //         }
+    //       } else {
+    //         alert('Password greater  than 5 char');
+    //       }
+    //     } else {
+    //       alert('Enter Mobile No');
+    //     }
+    //   } else {
+    //     alert('Enter Email');
+    //   }
+    // } else {
+    //   alert('Enter Full Name.');
+    // }
+    props.navigation.navigate('Info');
+  };
   return (
     <ScrollView style={{flex: 1, padding: 30, backgroundColor: '#ffffff'}}>
       <View>
@@ -129,6 +164,8 @@ const Signup = props => {
             }}
             placeholder="Full Name"
             placeholderTextColor="rgba(0, 0, 0, 0.3)"
+            value={fullname}
+            onChangeText={onChangefullname}
           />
         </View>
         <View
@@ -155,6 +192,8 @@ const Signup = props => {
             }}
             placeholder="Email Address"
             placeholderTextColor="rgba(0, 0, 0, 0.3)"
+            value={email}
+            onChangeText={onChangeemail}
           />
         </View>
         <View
@@ -180,6 +219,8 @@ const Signup = props => {
             }}
             placeholder="Phone Number"
             placeholderTextColor="rgba(0, 0, 0, 0.3)"
+            value={phone}
+            onChangeText={onChangephone}
           />
         </View>
         <View
@@ -206,6 +247,9 @@ const Signup = props => {
             }}
             placeholder="Password"
             placeholderTextColor="rgba(0, 0, 0, 0.3)"
+            value={password}
+            onChangeText={onChangepassword}
+            secureTextEntry={true}
           />
         </View>
         <View
@@ -231,6 +275,9 @@ const Signup = props => {
             }}
             placeholder="Re-enter Password"
             placeholderTextColor="rgba(0, 0, 0, 0.3)"
+            value={cpassword}
+            onChangeText={onChangecpassword}
+            secureTextEntry={true}
           />
         </View>
         <View
@@ -257,7 +304,7 @@ const Signup = props => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => props.navigation.navigate('Info')}
+            onPress={vaildation}
             style={{
               backgroundColor: '#D5715B',
               height: 52,

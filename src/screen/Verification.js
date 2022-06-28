@@ -2,6 +2,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 
 const Verification = props => {
+  console.log(props.route);
   return (
     <View style={{flex: 1, padding: 30, backgroundColor: '#ffffff'}}>
       <View style={{flex: 3}}>
